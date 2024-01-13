@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "925870629515",
+    "project_id": "fir-videoplayer-59dcb",
+    "storage_bucket": "fir-videoplayer-59dcb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925870629515:android:3b0e7df6705212e9c12a8e",
+        "android_client_info": {
+          "package_name": "com.om.mymovie"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDahFbwnj42CTg1FOlpjejv7QOlT-D2p-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

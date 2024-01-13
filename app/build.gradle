@@ -1,0 +1,116 @@
+buildscript {
+    repositories {
+        google()  // Google's Maven repository
+        mavenCentral()  // Maven Central repository
+    }
+    dependencies {
+        classpath 'com.google.gms:google-services:4.3.15'
+    }
+}
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+}
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+
+
+android {
+    namespace 'com.om.mymovie'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.om.mymovie"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-process:2.6.2'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'com.google.code.gson:gson:2.8.9'
+
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+
+    //
+    /* Exo Player Dep.*/
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.16.1'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.16.1'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.16.1'
+    implementation 'com.google.android.exoplayer:extension-okhttp:2.16.1'
+    implementation 'com.github.vkay94:DoubleTapPlayerView:1.0.4'
+    /*================*/
+
+
+
+    implementation 'com.google.firebase:firebase-analytics:21.3.0'  // firebase
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.7'// firebase
+    implementation 'com.google.firebase:firebase-config:21.4.0'     // firebase
+//    fire base storege
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-database-ktx'
+
+
+    implementation 'com.google.firebase:firebase-database:20.0.4'
+    implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation platform('com.google.firebase:firebase-bom:32.0.0')
+
+
+
+    implementation 'com.google.android.gms:play-services-ads-lite:22.0.0'
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    implementation 'androidx.multidex:multidex:2.0.1'           // apps
+    implementation 'com.google.android.gms:play-services-ads:22.1.0'// ads
+    implementation 'com.google.android.play:core:1.10.3'            // ads
+
+
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+
+    implementation 'com.quiph.ui:recyclerviewfastscroller:1.0.0'
+    implementation 'com.yandex.android:mobmetricalib:5.0.1'  // Yandex Mob
+    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'// One Singnal
+
+
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0'
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:custom-ui:12.1.0'
+
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_20sdp"
+    android:background="@drawable/shape_cornar"
+    android:backgroundTint="#90ffffff"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+
+    <TextView
+        android:id="@+id/setSpeedTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Video Speed"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_17sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/s1XTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/click_animation"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+        android:text="1 X"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/s15XTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/click_animation"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+        android:text="1.5 X"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/s2XTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/click_animation"
+        android:gravity="center"
+
+        android:padding="@dimen/_10sdp"
+
+        android:text="2 X"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/s25XTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/click_animation"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+
+        android:text="2.5X"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/s3XTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/click_animation"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+
+        android:text="3X"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold" />
+
+</LinearLayout>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main_blur_dark_color"
+    tools:context=".activity.DetailsOfMovieActivity">
+
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtubePlayerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/clTitleView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivFullScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/shape_cornar"
+        android:backgroundTint="@color/bg_main_blur_dark_color"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:padding="5dp"
+        android:src="@drawable/ic_vp_fullscreen_icon"
+        app:layout_constraintBottom_toBottomOf="@id/youtubePlayerView"
+        app:layout_constraintEnd_toEndOf="@id/youtubePlayerView" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTitleView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toTopOf="@id/clAd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/youtubePlayerView">
+
+        <TextView
+            android:id="@+id/tvTitleOfVideo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Video Title"
+            android:textColor="@color/ad_color_bg_native"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Movie Description"
+            android:textColor="@color/ad_color_bg_native"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleOfVideo" />
+
+        <TextView
+            android:id="@+id/tvReleseDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/app_name"
+            android:textColor="@color/ad_color_bg_native"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--================ For Advertisement============================-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/clAd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clTitleView">
+
+        <RelativeLayout
+            android:id="@+id/rlSmallAdsView"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/shape_cornar_small_size"
+            android:backgroundTint="@color/blue_grey_800"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/tvAdsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/space_for_ad"
+                    android:textColor="@color/white_alpha_060"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:id="@+id/flSmallNative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

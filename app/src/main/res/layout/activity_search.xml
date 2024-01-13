@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main_blur_dark_color"
+    tools:context=".activity.SearchActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlTopview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:foreground="@drawable/click_animation"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_back_img" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/ivBack"
+            android:background="@drawable/shape_cornar"
+            android:backgroundTint="#1C2939">
+
+            <EditText
+                android:id="@+id/edtSearchText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:background="@null"
+                android:fontFamily="@font/poppins_extralight"
+                android:hint="Search Video"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/_12sdp" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+        android:id="@+id/fastscroller"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/clAd"
+        android:layout_below="@+id/rlTopview"
+        android:elevation="@dimen/_10sdp"
+        app:handleDrawable="@drawable/shape_cornar_handler"
+        app:handleHeight="@dimen/_25sdp"
+        app:handleWidth="@dimen/_15sdp"
+        app:trackMarginEnd="@dimen/_15sdp"
+        app:trackMarginStart="@dimen/_10sdp">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSearchView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_5sdp" />
+
+    </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
+
+    <!--================ For Advertisement============================-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:id="@+id/rlSmallAdsView"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/shape_cornar_small_size"
+            android:backgroundTint="@color/blue_grey_800"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/tvAdsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/space_for_ad"
+                    android:textColor="@color/white_alpha_060"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:id="@+id/flSmallNative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

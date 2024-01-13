@@ -1,0 +1,77 @@
+<resources>
+
+    <style name="Base.Theme.MyMovie" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="android:statusBarColor">#1C2939</item>
+        <item name="android:navigationBarColor">#1C2939</item>
+    </style>
+
+    <style name="Theme.MyMovie" parent="Base.Theme.MyMovie">
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="Theme.App" parent="Theme.Material3.Light">
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
+    </style>
+
+    <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+
+        <item name="colorPrimary">#1A3042</item>
+        <item name="colorOnPrimary">@color/amber_700</item>
+        <item name="colorPrimaryContainer">@color/amber_black_3_4</item>
+        <item name="colorOnPrimaryContainer">@color/blue_black_3_3</item>
+
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondaryContainer">#3FACFF</item>        <!--navigation select color -->
+        <item name="colorOnSecondaryContainer">#14375A</item> <!-- select Icon Tint Color -->
+
+        <item name="android:colorBackground">@color/black</item>
+        <item name="colorOnBackground">@color/blue_black_5_6</item>
+        <item name="colorSurface">#000000</item>    <!-- navigation bar color Set bg-->
+        <item name="colorOnSurface">#1098FF</item>  <!-- text color select Color-->
+
+        <item name="colorSurfaceVariant">@color/blue_black_10_2</item>
+        <item name="colorOnSurfaceVariant">#707F93</item> <!--// unselect color icon-->
+        <item name="colorOutline">@color/grey_600</item>
+
+        <item name="colorSurfaceInverse">@color/blue_black_5_6</item>
+        <item name="colorOnSurfaceInverse">@color/blue_white_5_6</item>
+        <item name="colorPrimaryInverse">@color/blue_a100</item>
+
+    </style>
+
+    <style name="Video_Player_AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="alertDialog" parent="Theme.MaterialComponents.Dialog.Alert">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="FullScreenDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+    </style>
+
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
+
+</resources>

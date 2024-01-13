@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:id="@+id/mainVideoCLickRL"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_margin="3dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/click_animation"
+        android:gravity="center"
+        android:padding="@dimen/_2sdp">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imgRR"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_cornar_small_size"
+            android:backgroundTint="@color/amber_100"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
+
+            <ImageView
+                android:id="@+id/videoImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background" />
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/imgRR"
+            android:padding="3dp">
+
+            <TextView
+                android:id="@+id/videoTitile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toLeftOf="@+id/moreVideoImg"
+                android:fontFamily="sans-serif-black"
+                android:singleLine="true"
+                android:text="Video"
+                android:textColor="@color/blue_50"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/durationTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="14dp"
+                android:fontFamily="sans-serif-black"
+                android:text="09:00"
+                android:textColor="@color/blue_50"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/fileSizeTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@+id/durationTv"
+                android:background="@drawable/shape_cornar_small_size"
+                android:backgroundTint="#345680"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_7sdp"
+                android:paddingVertical="@dimen/_2sdp"
+                android:singleLine="true"
+                android:text="size"
+                android:textColor="@color/blue_50"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/moreVideoImg"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="@drawable/click_animation"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_more_menu_img" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

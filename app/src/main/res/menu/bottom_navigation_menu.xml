@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/folderItem"
+        android:enabled="true"
+        android:icon="@drawable/ic_folder"
+        android:title="Folder" />
+    <item
+        android:id="@+id/videoItem"
+        android:enabled="true"
+        android:icon="@drawable/ic_video"
+        android:title="Video" />
+    <item
+        android:id="@+id/movieItem"
+        android:enabled="true"
+        android:icon="@drawable/ic_movie_icon"
+        android:title="Movie" />
+</menu>

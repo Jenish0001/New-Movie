@@ -1,0 +1,540 @@
+
+//
+//       /* binding.tvVideoTitle.text = "videoName"
+////        binding.videoPlayer.setVideoPath(videoId)
+//        binding.videoPlayer.setVideoURI(Uri.parse(videoId))
+//        binding.videoPlayer.setOnCompletionListener(this)
+//        binding.videoPlayer.setOnPreparedListener(this)
+//        binding.videoPlayer.setOnErrorListener(this)
+//        binding.sbSeekbar.setOnSeekBarChangeListener(this)
+//        binding.ivBackImage.setOnClickListener { onBackPressed() }
+//        binding.ivShare.setOnClickListener {
+////            binding.ivShare.startAnimation(AnimationUtils.loadAnimation(this, R.anim.image_click));
+//        }
+//
+//        val displayMetrics = DisplayMetrics()
+//        val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+//        windowManager.defaultDisplay.getMetrics(displayMetrics)
+//        val screenWidth = displayMetrics.widthPixels
+//        val screenHeight = displayMetrics.heightPixels
+//        originaclSize = false
+//        binding.videoPlayer.setVideoSize(screenWidth, screenHeight)
+//
+//        var fullScreen = true
+//        binding.ivChangeScreen.setOnClickListener {
+//
+//            if (fullScreen) {
+//                originaclSize = true
+////                binding.ivChangeScreen.setImageDrawable(resources.getDrawable(R.drawable.ic_fit_icon))
+//            } else {
+////                binding.ivChangeScreen.setImageDrawable(resources.getDrawable(R.drawable.ic_full_icon))
+//            }
+//            binding.videoPlayer.setVideoSize(screenWidth, screenHeight)
+//            fullScreen = !fullScreen
+//        }
+//
+//        binding.ivLockScreen.setOnClickListener {
+//            isLockMode = true
+//
+//            Handler().postDelayed({
+//                binding.flTopbar.visibility = View.GONE
+//                binding.clBottomSide.visibility = View.GONE
+//                binding.ivUnlock.visibility = View.VISIBLE
+//                isControllerVisible = true
+//                hideUnLockBtn()
+//            }, 500)
+//
+//        }
+//        binding.ivUnlock.setOnClickListener {
+////            binding.ivUnlock.startAnimation(AnimationUtils.loadAnimation(this@VideoPlayerActivity, R.anim.image_click_fast))
+//            isLockMode = false
+//            Handler().postDelayed({
+//                binding.clBottomSide.visibility = View.VISIBLE
+//                binding.flTopbar.visibility = View.VISIBLE
+//                binding.ivUnlock.visibility = View.GONE
+//                hideControllerView()
+//            }, 500)
+//
+//        }
+//        binding.ivForwardReverse.setOnClickListener {
+//            binding.sbSeekbar.progress = binding.sbSeekbar.progress - 5000
+//            binding.videoPlayer.seekTo(binding.sbSeekbar.progress)
+////            binding.ivForwardReverse.startAnimation(
+////                AnimationUtils.loadAnimation(
+////                    this,
+////                    R.anim.image_click
+////                )
+////            )
+//        }
+//        binding.ivForward.setOnClickListener {
+//            binding.sbSeekbar.progress = binding.sbSeekbar.progress + 5000
+////            binding.ivForward.startAnimation(AnimationUtils.loadAnimation(this, R.anim.image_click))
+//            binding.videoPlayer.seekTo(binding.sbSeekbar.progress)
+//        }
+//        binding.ivPlayAndPause.setOnClickListener {
+////            binding.ivPlayAndPause.startAnimation(
+////                AnimationUtils.loadAnimation(
+////                    this,
+////                    R.anim.image_click
+////                )
+////            )
+//            if (binding.videoPlayer.isPlaying) {
+//                pauseVideo()
+//            } else {
+//                resumeVideo()
+//            }
+//        }
+//
+////        Handler().postDelayed({
+////            binding.clBottomSide.visibility = View.GONE
+////            binding.flTopbar.visibility = View.GONE
+////            binding.ivUnlock.visibility = View.GONE
+////        }, 4000)
+//
+////        hideAndShowController(isLockMode)
+//        hideControllerView()
+//        binding.root.setOnClickListener {
+//            hideShowController()
+//        }*/
+//
+//
+//        val uri: Uri = Uri.parse(videoId)
+//
+//        // on below line we are setting
+//        // video uri for our video view.
+//        binding.videoPlayer.setVideoURI(uri)
+//
+//        // on below line we are creating variable
+//        // for media controller and initializing it.
+//        val mediaController = MediaController(this)
+//
+//        // on below line we are setting anchor
+//        // view for our media controller.
+//        mediaController.setAnchorView(binding.videoPlayer)
+//
+//        // on below line we are setting media player
+//        // for our media controller.
+//        mediaController.setMediaPlayer(binding.videoPlayer)
+//
+//        // on below line we are setting media
+//        // controller for our video view.
+//        binding.videoPlayer.setMediaController(mediaController)
+//
+//        // on below line we are
+//        // simply starting our video view.
+//        binding.videoPlayer.start()
+//    }
+//
+//    companion object {
+//        var originaclSize: Boolean = false
+//    }
+//
+//    private var isLockMode = false
+//
+//    //    private var isUnlockVisible = true
+//    private var isControllerVisible = true
+//    private var hideControllerViewJob: Job? = null
+//    private var hideUnLockBtnJob: Job? = null
+//    override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+//        if (p2) {
+//            binding.videoPlayer.seekTo(p1)
+//        }
+//    }
+//
+//    override fun onStartTrackingTouch(p0: SeekBar?) {
+//        binding.tvCurrantVideoDuration.text =
+//            getTimeString(binding.videoPlayer.currentPosition.toLong())
+//    }
+//
+//    override fun onStopTrackingTouch(p0: SeekBar?) {
+//        binding.tvCurrantVideoDuration.text =
+//            getTimeString(binding.videoPlayer.currentPosition.toLong())
+//    }
+//
+//    override fun onCompletion(p0: MediaPlayer?) {
+//        /* --- this to Complete play video */
+//        onBackPressed()
+//    }
+//
+//    override fun onError(p0: MediaPlayer?, p1: Int, p2: Int): Boolean {
+//        /* When Find Error So That so Handle It.*/
+//        return false
+//    }
+//
+//    private val onEverySecond: Runnable = object : Runnable {
+//        override fun run() {
+//            if (binding.sbSeekbar != null) {
+//                binding.sbSeekbar.setProgress(binding.videoPlayer.getCurrentPosition())
+//                binding.tvCurrantVideoDuration.setText(
+//                    getTimeString(
+//                        binding.videoPlayer.getCurrentPosition().toLong()
+//                    )
+//                )
+//            }
+//            if (binding.videoPlayer.isPlaying()) {
+//                binding.sbSeekbar.postDelayed(this, 100)
+//            }
+//        }
+//    }
+//
+//    private fun getTimeString(j: Long): String {
+//        val stringBuffer = StringBuffer()
+//        val i = (j % 3600000 % 60000 / 1000).toInt()
+//        stringBuffer.append(
+//            String.format(
+//                "%02d",
+//                *arrayOf<Any>(Integer.valueOf((j % 3600000 / 60000).toInt()))
+//            )
+//        )
+//        stringBuffer.append(":")
+//        stringBuffer.append(String.format("%02d", *arrayOf<Any>(Integer.valueOf(i))))
+//        return stringBuffer.toString()
+//    }
+//
+//    override fun onPrepared(media: MediaPlayer?) {
+//        /* -- This for prepared to the video */
+//        val videoDuration = media?.duration
+//        media?.setVolume(60.0f, 60.0f)
+//        binding.sbSeekbar.max = media?.duration!!
+//        binding.sbSeekbar.postDelayed(onEverySecond, 1000)
+//        binding.tvTotalVideoDuration.text = getTimeString(videoDuration?.toLong()!!)
+//
+//        playVideo()
+//    }
+//
+//    private val audioFocusListener = AudioManager.OnAudioFocusChangeListener { _ ->
+//        pauseVideo()
+//    }
+//
+//    private fun pauseVideo() {
+//        binding.ivPlayAndPause.setImageDrawable(resources.getDrawable(R.drawable.ic_play_vp_img))
+//        binding.videoPlayer.pause()
+//        getAudioManager()?.abandonAudioFocus(audioFocusListener)
+//    }
+//
+//    private fun playVideo() {
+//        requestFocus()
+//        binding.ivPlayAndPause.setImageDrawable(resources.getDrawable(R.drawable.ic_pause_img))
+//        binding.videoPlayer.start()
+//    }
+//
+//    private fun resumeVideo() {
+//        binding.ivPlayAndPause.setImageDrawable(resources.getDrawable(R.drawable.ic_pause_img))
+//        binding.videoPlayer.resume()
+//        binding.videoPlayer.seekTo(binding.sbSeekbar.progress)
+//    }
+//
+//    private fun requestFocus(): Boolean {
+//        return getAudioManager()?.requestAudioFocus(
+//            audioFocusListener,
+//            AudioManager.STREAM_MUSIC,
+//            AudioManager.AUDIOFOCUS_GAIN
+//        ) == AudioManager.AUDIOFOCUS_REQUEST_GRANTED
+//    }
+//
+//    private var audioManager: AudioManager? = null
+//    private fun getAudioManager(): AudioManager? {
+//        if (audioManager == null) {
+//            audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
+//        }
+//        return audioManager
+//    }
+//
+//
+//    private fun hideShowController() {
+//        if (!isLockMode) {
+//            if (isControllerVisible) {
+//                isControllerVisible = false
+//                hideControllerViewJob?.cancel()
+//                binding.clBottomSide.visibility = View.INVISIBLE
+//                binding.flTopbar.visibility = View.INVISIBLE
+//            } else {
+//                isControllerVisible = true
+//                binding.clBottomSide.visibility = View.VISIBLE
+//                binding.flTopbar.visibility = View.VISIBLE
+//                hideControllerView()
+//            }
+//        } else {
+//            if (isControllerVisible) {
+//                isControllerVisible = false
+//                hideUnLockBtnJob?.cancel()
+//                binding.ivUnlock.visibility = View.INVISIBLE
+//            } else {
+//                isControllerVisible = true
+//                binding.ivUnlock.visibility = View.VISIBLE
+//                hideUnLockBtn()
+//            }
+//
+//        }
+//    }
+//
+//    private fun hideControllerView() {
+//        if (binding.clBottomSide.visibility != View.VISIBLE && binding.flTopbar.visibility != View.VISIBLE) return
+//        hideControllerViewJob = lifecycleScope.launch {
+//            delay(2000L)
+//            binding.clBottomSide.visibility = View.GONE
+//            binding.flTopbar.visibility = View.GONE
+//            isControllerVisible = false
+//        }
+//    }
+//
+//    private fun hideUnLockBtn() {
+//        if (binding.ivUnlock.visibility != View.VISIBLE) return
+//        hideUnLockBtnJob = lifecycleScope.launch {
+//            delay(2000L)
+//            binding.ivUnlock.visibility = View.GONE
+//            isControllerVisible = false
+//        }
+//    }
+//
+//    override fun onResume() {
+//        super.onResume()
+//
+//
+//        resumeVideo()
+////        hideAndShowController(isLockMode)
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//
+//        pauseVideo()
+//    }
+//
+//    override fun onDestroy() {
+//        super.onDestroy()
+//
+//        pauseVideo()
+//    }
+
+/*, MediaPlayer.OnCompletionListener,
+    MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener, SeekBar.OnSeekBarChangeListener*/
+
+
+
+    <VideoView
+        android:id="@+id/videoPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--<com.jenish.videodownloader.util.MyVideoView
+        android:id="@+id/videoPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shodow_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clBottomSide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:layout_constraintBottom_toTopOf="@+id/clBottomIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/tvCurrantVideoDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <SeekBar
+                    android:id="@+id/sbSeekbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:max="100"
+                    android:maxHeight="4.0dip"
+                    android:minHeight="4.0dip"
+                    android:progress="50"
+                    android:progressDrawable="@drawable/shape_seekbar_drawable"
+                    android:thumb="@drawable/ic_seekbar_drwable"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tvTotalVideoDuration"
+                    app:layout_constraintStart_toEndOf="@+id/tvCurrantVideoDuration"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/tvTotalVideoDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clBottomIcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivLockScreen"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:background="@drawable/click_animation"
+                    android:src="@drawable/ic_lock_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivForwardReverse"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:background="@drawable/click_animation"
+                    android:src="@drawable/ic_back_forward_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ivPlayAndPause"
+                    app:layout_constraintStart_toEndOf="@+id/ivLockScreen"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivPlayAndPause"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:backgroundTint="@color/black"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_pause_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/ivForward"
+                    app:layout_constraintStart_toEndOf="@+id/ivForwardReverse"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/ivForward"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:background="@drawable/click_animation"
+                    android:src="@drawable/ic_next_btn_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ivChangeScreen"
+                    app:layout_constraintStart_toEndOf="@+id/ivPlayAndPause"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivChangeScreen"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:foreground="@drawable/click_animation"
+                    android:src="@drawable/ic_full_screen_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/ivUnlock"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:foreground="@drawable/click_animation"
+            android:src="@drawable/ic_unlock_img"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <FrameLayout
+        android:id="@+id/flTopbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="#68000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/ivBackImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_7sdp"
+                android:background="@drawable/click_animation"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_back_img"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/tvVideoTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_toLeftOf="@+id/ivShare"
+                android:layout_toRightOf="@+id/ivBackImage"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ivShare"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:background="@drawable/click_animation"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_share_icon" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
